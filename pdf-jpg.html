@@ -3,266 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convert PDF to High Quality JPG Images Online - Free PDF to JPG Converter with Instant Download">
+    <title>CoolToolkit - Convert PDF to JPG Online | Free PDF Converter</title>
+    <meta name="description" content="Convert PDF files to high-quality JPG images instantly with CoolToolkit. Free online PDF to JPG converter with secure processing and fast results.">
+    <meta name="keywords" content="PDF to JPG, Convert PDF, PDF Converter, Online PDF Tools, CoolToolkit">
+    <meta name="author" content="CoolToolkit">
     
-    <!-- SEO Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "PDF to JPG Converter",
-        "url": "https://yourdomain.com",
-        "applicationCategory": "FileConversion",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    }
-    </script>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="CoolToolkit - PDF to JPG Converter">
+    <meta property="og:description" content="Free online PDF to JPG converter with instant results">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cooltoolkit.com">
     
-    <!-- Google AdSense -->
+    <!-- Google AdSense Code (Replace with your own ID) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
     crossorigin="anonymous"></script>
-    
-    <title>PDF to JPG Converter - Convert PDF to Images Online</title>
+
     <style>
         :root {
-            --primary-blue: #2196F3;
-            --secondary-blue: #1976D2;
-            --background: #f8f9fa;
+            --primary-blue: #1a237e;
+            --secondary-blue: #448aff;
+            --background: #f5f7fb;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--background);
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
 
-        .header {
-            background: var(--primary-blue);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .converter-box {
+        .converter-section {
             background: white;
-            border-radius: 10px;
             padding: 2rem;
+            border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin: 2rem 0;
         }
 
-        .upload-area {
-            border: 2px dashed var(--primary-blue);
+        .drop-zone {
+            border: 2px dashed var(--secondary-blue);
             padding: 3rem;
             text-align: center;
             margin: 2rem 0;
             cursor: pointer;
-            transition: 0.3s;
-            position: relative;
+            transition: all 0.3s;
         }
 
-        .upload-area:hover {
-            background: #e3f2fd;
+        .drop-zone:hover {
+            background: #f8f9ff;
+            border-color: var(--primary-blue);
         }
 
-        #fileInput {
-            display: none;
-        }
-
-        .convert-btn {
+        #convertBtn {
             background: var(--primary-blue);
             color: white;
             border: none;
             padding: 1rem 2rem;
+            font-size: 1.1rem;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1.1rem;
-            transition: 0.3s;
+            transition: background 0.3s;
             display: block;
-            margin: 1rem auto;
+            margin: 0 auto;
         }
 
-        .convert-btn:hover {
+        #convertBtn:hover {
             background: var(--secondary-blue);
         }
 
-        .preview-section {
-            display: none;
-            margin: 2rem 0;
-        }
-
-        .ad-unit {
+        .ad-section {
             margin: 2rem 0;
             text-align: center;
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
         }
 
-        #resultContainer {
-            display: none;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
             margin-top: 2rem;
         }
 
-        .page-preview {
-            margin: 1rem 0;
-            border: 1px solid #ddd;
+        .image-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--primary-blue);
+        }
+
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            text-align: center;
             padding: 1rem;
-            border-radius: 5px;
+            position: relative;
+            margin-top: 2rem;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 0 1rem;
             }
             
-            .upload-area {
-                padding: 2rem 1rem;
+            .drop-zone {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Ad Unit -->
-    <div class="ad-unit">
+    <header>
+        <h1>CoolToolkit</h1>
+        <p>PDF to JPG Converter</p>
+    </header>
+
+    <!-- Ad Section -->
+    <div class="ad-section">
+        <!-- Replace with your AdSense code -->
         <ins class="adsbygoogle"
             style="display:block"
             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-            data-ad-slot="1234567890"
+            data-ad-slot="XXXXXXXXXX"
             data-ad-format="auto"
             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <div class="header">
-        <h1>PDF to JPG Converter</h1>
-        <p>Convert PDF documents to high-quality JPG images instantly</p>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     <div class="container">
-        <div class="converter-box">
-            <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-                <p>Click to upload PDF or drag and drop</p>
-                <input type="file" id="fileInput" accept=".pdf">
+        <div class="converter-section">
+            <div class="drop-zone" id="dropZone">
+                <p>Drag and drop PDF file here or click to upload</p>
+                <input type="file" id="fileInput" accept="application/pdf" hidden>
             </div>
-
-            <div class="preview-section" id="previewSection">
-                <h3>Selected File: <span id="fileName"></span></h3>
-                <p>Pages: <span id="pageCount"></span></p>
-            </div>
-
-            <button class="convert-btn" onclick="convertPdfToJpg()">Convert to JPG</button>
-
-            <div id="resultContainer">
-                <h3>Converted Images:</h3>
-                <div id="imageResults"></div>
-                <button class="convert-btn" onclick="downloadAll()">Download All as ZIP</button>
-            </div>
-        </div>
-
-        <!-- Footer Ad Unit -->
-        <div class="ad-unit">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                data-ad-slot="0987654321"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            
+            <button id="convertBtn">Convert to JPG</button>
+            <div class="loading" id="loading">Processing... Please wait</div>
+            <div class="gallery" id="gallery"></div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-    <script>
-        let pdfDoc = null;
-        let totalPages = 0;
-        const zip = new JSZip();
+    <footer>
+        <p>© 2023 CoolToolkit - All rights reserved</p>
+    </footer>
 
-        document.getElementById('fileInput').addEventListener('change', async (e) => {
-            const file = e.target.files[0];
-            if (file && file.type === 'application/pdf') {
-                document.getElementById('previewSection').style.display = 'block';
-                document.getElementById('fileName').textContent = file.name;
-                
-                const arrayBuffer = await file.arrayBuffer();
-                pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
-                totalPages = pdfDoc.getPages().length;
-                document.getElementById('pageCount').textContent = totalPages;
-            }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const convertBtn = document.getElementById('convertBtn');
+        const loading = document.getElementById('loading');
+        const gallery = document.getElementById('gallery');
+
+        // File Input Handling
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '#f8f9ff';
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.backgroundColor = 'white';
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            if (file.type === 'application/pdf') handleFile(file);
         });
 
-        async function convertPdfToJpg() {
-            if (!pdfDoc) return alert('Please select a PDF file first!');
-            
-            document.getElementById('resultContainer').style.display = 'block';
-            document.getElementById('imageResults').innerHTML = '';
-            
-            const loading = document.createElement('div');
-            loading.textContent = 'Converting... (0/' + totalPages + ')';
-            document.getElementById('imageResults').appendChild(loading);
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleFile(file);
+        });
 
-            for (let i = 0; i < totalPages; i++) {
-                const page = await pdfDoc.getPage(i);
-                const { width, height } = page.getSize();
+        // Conversion Function
+        async function convertPDFToJPG(pdfFile) {
+            loading.style.display = 'block';
+            gallery.innerHTML = '';
+            
+            try {
+                const pdfData = await pdfFile.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({data: pdfData}).promise;
+                const zip = new JSZip();
                 
-                const canvas = document.createElement('canvas');
-                canvas.width = width;
-                canvas.height = height;
+                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    const page = await pdf.getPage(pageNum);
+                    const viewport = page.getViewport({scale: 2});
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise;
+                    
+                    const imgData = canvas.toDataURL('image/jpeg');
+                    const img = document.createElement('img');
+                    img.src = imgData;
+                    
+                    const card = document.createElement('div');
+                    card.className = 'image-card';
+                    card.innerHTML = `
+                        <img src="${imgData}" style="width:100%">
+                        <div style="padding:1rem">
+                            <a href="${imgData}" download="page-${pageNum}.jpg" class="download-btn">Download</a>
+                        </div>
+                    `;
+                    
+                    gallery.appendChild(card);
+                    zip.file(`page-${pageNum}.jpg`, imgData.split(',')[1], {base64: true});
+                }
+
+                // Add zip download button
+                const zipContent = await zip.generateAsync({type: 'blob'});
+                const zipUrl = URL.createObjectURL(zipContent);
                 
-                const ctx = canvas.getContext('2d');
-                await page.render({ canvasContext: ctx }).promise;
+                const zipBtn = document.createElement('button');
+                zipBtn.textContent = 'Download All as ZIP';
+                zipBtn.className = 'download-btn';
+                zipBtn.style.marginTop = '1rem';
+                zipBtn.onclick = () => {
+                    const a = document.createElement('a');
+                    a.href = zipUrl;
+                    a.download = 'converted-images.zip';
+                    a.click();
+                };
                 
-                const imgData = canvas.toDataURL('image/jpeg');
-                const img = new Image();
-                img.src = imgData;
-                
-                const imgContainer = document.createElement('div');
-                imgContainer.className = 'page-preview';
-                imgContainer.innerHTML = `
-                    <p>Page ${i + 1}</p>
-                    <img src="${imgData}" style="max-width: 100%">
-                    <button onclick="downloadSingle(${i})">Download</button>
-                `;
-                
-                zip.file(`page-${i + 1}.jpg`, imgData.split(',')[1], { base64: true });
-                document.getElementById('imageResults').appendChild(imgContainer);
-                loading.textContent = `Converting... (${i + 1}/${totalPages})`;
+                gallery.insertAdjacentElement('beforeend', zipBtn);
+            } catch (error) {
+                alert('Error processing PDF: ' + error.message);
+            } finally {
+                loading.style.display = 'none';
             }
-            loading.remove();
         }
 
-        function downloadSingle(pageNumber) {
-            const link = document.createElement('a');
-            link.download = `page-${pageNumber + 1}.jpg`;
-            link.href = zip.files[`page-${pageNumber + 1}.jpg`]._data.generateAsync({ type: 'base64' })
-                .then(base64 => `data:image/jpeg;base64,${base64}`);
-            link.click();
+        function handleFile(file) {
+            if (file.type !== 'application/pdf') {
+                alert('Please select a PDF file');
+                return;
+            }
+            convertPDFToJPG(file);
         }
 
-        async function downloadAll() {
-            const content = await zip.generateAsync({ type: 'blob' });
-            const link = document.createElement('a');
-            link.download = 'converted-images.zip';
-            link.href = URL.createObjectURL(content);
-            link.click();
-        }
+        convertBtn.addEventListener('click', () => fileInput.click());
     </script>
 </body>
 </html>
