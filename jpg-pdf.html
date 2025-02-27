@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoolToolkit - Professional JPG to PDF Converter</title>
-    <meta name="description" content="Convert JPG images to high-quality PDF documents instantly with CoolToolkit. Free online tool with adjustable compression and premium output quality.">
-    <meta name="keywords" content="CoolToolkit, JPG to PDF, image converter, PDF creator, online tools">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>CoolToolkit | Convert JPG to PDF Online - Professional Image Converter</title>
+    <meta name="description" content="Convert JPG images to high-quality PDF documents instantly with CoolToolkit. Free online tool with premium output quality and instant download.">
+    <meta name="keywords" content="CoolToolkit, JPG to PDF, image converter, online PDF creator, professional converter">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_CLIENT_ID" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <style>
         :root {
-            --primary: #2A2F4F;
-            --secondary: #917FB3;
-            --accent: #E5BEEC;
-            --background: #FDE2F3;
-            --text: #2A2F4F;
+            --primary: #1A237E;
+            --secondary: #1976D2;
+            --accent: #90CAF9;
+            --background: #E3F2FD;
+            --text: #0D47A1;
         }
 
         * {
@@ -29,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .header {
@@ -56,15 +56,13 @@
         }
 
         .upload-section {
-            border: 2px dashed var(--accent);
+            border: 3px dashed var(--accent);
             border-radius: 15px;
             padding: 3rem;
             text-align: center;
             margin-bottom: 2rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
 
         .upload-section:hover {
@@ -72,31 +70,17 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .controls {
-            margin: 2.5rem 0;
-            display: grid;
-            gap: 2rem;
-        }
-
-        .quality-control {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
         .preview-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
         }
 
-        .preview-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+        #imagePreview {
+            max-width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
         }
 
         .ad-unit {
@@ -105,7 +89,7 @@
             padding: 1.5rem;
             margin: 1.5rem 0;
             text-align: center;
-            min-height: 320px;
+            min-height: 300px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
 
@@ -129,6 +113,19 @@
             transform: translateY(-2px);
         }
 
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
@@ -137,10 +134,6 @@
             
             .upload-section {
                 padding: 2rem 1rem;
-            }
-            
-            .preview-container {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -157,47 +150,30 @@
     </div>
 
     <header class="header">
-        <h1>CoolToolkit</h1>
-        <p>Professional JPG to PDF Conversion Solution</p>
+        <h1>CoolToolkit JPG to PDF Converter</h1>
+        <p>Transform Images into Professional PDF Documents</p>
     </header>
 
     <div class="container">
         <main class="main-content">
             <div class="upload-section" id="dropZone" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
                 <i class="fas fa-cloud-upload-alt fa-3x" style="margin-bottom: 1.5rem; color: var(--secondary);"></i>
-                <h2 style="margin-bottom: 0.5rem;">Drag & Drop JPG Files</h2>
-                <p class="file-info" style="color: var(--text); opacity: 0.8;">or click to select images (JPG only)</p>
+                <h2 style="margin-bottom: 0.5rem;">Drag & Drop JPG File</h2>
+                <p style="color: var(--text); opacity: 0.8;">or click to select image</p>
                 <input type="file" id="fileInput" accept="image/jpeg" hidden>
                 <button onclick="document.getElementById('fileInput').click()" class="btn" style="margin-top: 2rem;">
-                    <i class="fas fa-folder-open"></i> Select JPG Files
-                </button>
-            </div>
-
-            <div class="controls">
-                <div class="quality-control">
-                    <label style="font-weight: 500;">PDF Quality: <span id="qualityValue">80</span>%</label>
-                    <input type="range" id="quality" min="1" max="100" value="80" style="accent-color: var(--secondary);">
-                </div>
-                
-                <button class="btn" onclick="convertToPDF()">
-                    <i class="fas fa-magic"></i> Convert to PDF
+                    <i class="fas fa-folder-open"></i> Select JPG File
                 </button>
             </div>
 
             <div class="preview-container">
-                <div class="preview-card">
-                    <h3 style="margin-bottom: 1.5rem;"><i class="fas fa-image"></i> Selected JPG</h3>
-                    <div class="preview-content" id="imagePreview" style="min-height: 250px;"></div>
-                </div>
-                <div class="preview-card">
-                    <h3 style="margin-bottom: 1.5rem;"><i class="fas fa-file-pdf"></i> Generated PDF</h3>
-                    <div class="preview-content" id="pdfPreview" style="min-height: 250px;">
-                        <p class="file-info" style="text-align: center; color: var(--text); opacity: 0.7;">PDF preview will appear here</p>
-                    </div>
-                    <a id="downloadLink" download class="btn" style="display: none; margin-top: 2rem; width: 100%; justify-content: center;">
-                        <i class="fas fa-download"></i> Download PDF
-                    </a>
-                </div>
+                <img id="imagePreview" alt="Image Preview">
+            </div>
+
+            <div class="controls">
+                <button class="btn" onclick="convertToPDF()">
+                    <i class="fas fa-file-pdf"></i> Convert to PDF
+                </button>
             </div>
         </main>
 
@@ -214,24 +190,24 @@
         </aside>
     </div>
 
+    <div class="loading" id="loading">
+        <div style="text-align: center">
+            <div class="fas fa-spinner fa-spin fa-3x" style="color: var(--secondary);"></div>
+            <p style="margin-top: 1rem; font-weight: 500;">Creating PDF...</p>
+        </div>
+    </div>
+
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
 
         let selectedFile = null;
-        const qualitySlider = document.getElementById('quality');
-        const qualityValue = document.getElementById('qualityValue');
+        const loading = document.getElementById('loading');
 
-        // Initialize quality slider
-        qualitySlider.addEventListener('input', (e) => {
-            qualityValue.textContent = e.target.value;
-        });
-
-        // File input handler
+        // File handling
         document.getElementById('fileInput').addEventListener('change', function(e) {
-            handleFileSelection(e.target.files[0]);
+            handleFile(e.target.files[0]);
         });
 
-        // Drag and drop handlers
         function handleDragOver(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -241,74 +217,45 @@
         function handleDrop(e) {
             e.preventDefault();
             e.stopPropagation();
-            const file = e.dataTransfer.files[0];
-            handleFileSelection(file);
+            handleFile(e.dataTransfer.files[0]);
         }
 
-        function handleFileSelection(file) {
-            if (!file) return;
-            
-            if (file.type === 'image/jpeg') {
-                selectedFile = file;
-                showImagePreview(file);
-            } else {
-                alert('Please upload only JPG files');
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/jpeg')) {
+                alert('Please select a valid JPG file');
+                return;
             }
-        }
-
-        // Show image preview
-        function showImagePreview(file) {
-            const preview = document.getElementById('imagePreview');
-            preview.innerHTML = '';
             
+            selectedFile = file;
             const reader = new FileReader();
             reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.maxWidth = '100%';
-                img.style.borderRadius = '10px';
-                img.style.boxShadow = '0 3px 15px rgba(0, 0, 0, 0.1)';
-                preview.appendChild(img);
+                document.getElementById('imagePreview').src = e.target.result;
             };
             reader.readAsDataURL(file);
         }
 
-        // Main conversion function
+        // Conversion function
         async function convertToPDF() {
             if (!selectedFile) return alert('Please select a JPG file first!');
-
-            const quality = qualitySlider.value / 100;
-            const img = await loadImage(selectedFile);
             
-            const pdf = new jspdf.jsPDF();
-            const imgWidth = pdf.internal.pageSize.getWidth();
-            const imgHeight = (img.height * imgWidth) / img.width;
+            loading.style.display = 'flex';
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                const img = await loadImage(selectedFile);
+                
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (img.height * pdfWidth) / img.width;
 
-            pdf.addImage(img, 'JPEG', 0, 0, imgWidth, imgHeight, undefined, 'FAST', quality * 100);
-            
-            const pdfBlob = pdf.output('blob');
-            showPDFResult(pdfBlob);
+                pdf.addImage(img, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save(`CoolToolkit-${Date.now()}.pdf`);
+            } catch (error) {
+                alert('Error creating PDF: ' + error.message);
+            } finally {
+                loading.style.display = 'none';
+            }
         }
 
-        // Handle PDF result
-        function showPDFResult(blob) {
-            const url = URL.createObjectURL(blob);
-            const preview = document.getElementById('pdfPreview');
-            preview.innerHTML = `
-                <div style="text-align: center;">
-                    <i class="fas fa-file-pdf fa-3x" style="color: var(--secondary);"></i>
-                    <p style="margin: 1.5rem 0 0.5rem; font-weight: 500;">PDF Ready!</p>
-                    <p style="color: var(--text); opacity: 0.7;">Size: ${(blob.size/1024).toFixed(1)}KB</p>
-                </div>
-            `;
-
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = url;
-            downloadLink.download = `cooltoolkit-${Date.now()}.pdf`;
-            downloadLink.style.display = 'flex';
-        }
-
-        // Helper function to load image
         function loadImage(file) {
             return new Promise((resolve) => {
                 const img = new Image();
