@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoolToolkit - All-in-One PDF & Image Solution | Online Tools</title>
-    <meta name="description" content="CoolToolkit offers professional PDF and image tools: Convert, compress, merge, split, and edit documents online. Free web-based solution with premium quality.">
-    <meta name="keywords" content="CoolToolkit, PDF tools, image converter, document converter, online tools">
+    <title>CoolToolkit - All-in-One PDF & Image Solution</title>
+    <meta name="description" content="Professional PDF and image tools: Convert, compress, merge, split, and edit documents online. Free web-based solution with premium quality.">
+    <meta name="keywords" content="PDF tools, image converter, document converter, online tools">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_CLIENT_ID" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -28,23 +28,60 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Header Styles */
         .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 2rem 1rem;
-            text-align: center;
+            padding: 1rem;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
         }
 
         .tool-grid {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 1rem;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
+            padding: 1rem;
         }
 
         .tool-card {
@@ -54,6 +91,8 @@
             text-align: center;
             transition: all 0.3s ease;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: inherit;
         }
 
         .tool-card:hover {
@@ -77,15 +116,74 @@
             min-height: 250px;
         }
 
+        /* Footer Styles */
         footer {
             background: var(--primary);
             color: white;
-            padding: 2rem;
+            padding: 3rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: white;
+            transition: opacity 0.3s;
+        }
+
+        .copyright {
             text-align: center;
-            margin-top: 3rem;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             .tool-grid {
                 grid-template-columns: 1fr;
             }
@@ -103,85 +201,98 @@
              data-full-width-responsive="true"></ins>
     </div>
 
+    <!-- Header Navigation -->
     <header class="header">
-        <h1>🛠️ CoolToolkit</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="logo">
+                <h1>🛠️ CoolToolkit</h1>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="all-tools.html">All Tools</a>
+                <a href="about.html">About</a>
+            </div>
+        </nav>
         <p>Your Ultimate Document & Image Solution</p>
     </header>
 
-    <div class="tool-grid">
-        <!-- PDF Tools -->
-        <a href="/jpg-pdf.html" class="tool-card">
-            <div class="tool-icon">🖼️➡️📄</div>
-            <h3>JPG to PDF</h3>
-            <p>Convert images to PDF documents</p>
-        </a>
+    <!-- Main Content -->
+    <main>
+        <div class="tool-grid">
+            <!-- PDF Tools -->
+            <a href="jpg-to-pdf.html" class="tool-card">
+                <div class="tool-icon">🖼️➡️📄</div>
+                <h3>JPG to PDF</h3>
+                <p>Convert images to PDF documents</p>
+            </a>
 
-        <a href="/pdf-jpg.html" class="tool-card">
-            <div class="tool-icon">📄➡️🖼️</div>
-            <h3>PDF to JPG</h3>
-            <p>Extract images from PDF files</p>
-        </a>
+            <a href="pdf-to-jpg.html" class="tool-card">
+                <div class="tool-icon">📄➡️🖼️</div>
+                <h3>PDF to JPG</h3>
+                <p>Extract images from PDF files</p>
+            </a>
 
-        <a href="/pdf-merge.html" class="tool-card">
-            <div class="tool-icon">📂➕📂</div>
-            <h3>PDF Merger</h3>
-            <p>Combine multiple PDFs into one</p>
-        </a>
+            <a href="pdf-merge.html" class="tool-card">
+                <div class="tool-icon">📂➕📂</div>
+                <h3>PDF Merger</h3>
+                <p>Combine multiple PDFs into one</p>
+            </a>
 
-        <a href="/split-pdf.html" class="tool-card">
-            <div class="tool-icon">✂️📄</div>
-            <h3>Split PDF</h3>
-            <p>Divide PDF into multiple files</p>
-        </a>
+            <a href="split-pdf.html" class="tool-card">
+                <div class="tool-icon">✂️📄</div>
+                <h3>Split PDF</h3>
+                <p>Divide PDF into multiple files</p>
+            </a>
 
-        <a href="/pdf-compressor.html" class="tool-card">
-            <div class="tool-icon">📉📄</div>
-            <h3>PDF Compressor</h3>
-            <p>Reduce PDF file size</p>
-        </a>
+            <a href="pdf-compressor.html" class="tool-card">
+                <div class="tool-icon">📉📄</div>
+                <h3>PDF Compressor</h3>
+                <p>Reduce PDF file size</p>
+            </a>
 
-        <a href="/word-to-pdf" class="tool-card">
-            <div class="tool-icon">📝➡️📄</div>
-            <h3>Word to PDF</h3>
-            <p>Convert DOC/DOCX to PDF</p>
-        </a>
+            <a href="word-to-pdf.html" class="tool-card">
+                <div class="tool-icon">📝➡️📄</div>
+                <h3>Word to PDF</h3>
+                <p>Convert DOC/DOCX to PDF</p>
+            </a>
 
-        <a href="/pdf-to-powerpoint" class="tool-card">
-            <div class="tool-icon">📄➡️📊</div>
-            <h3>PDF to PowerPoint</h3>
-            <p>Convert PDF to PPT/PPTX</p>
-        </a>
+            <a href="pdf-to-powerpoint.html" class="tool-card">
+                <div class="tool-icon">📄➡️📊</div>
+                <h3>PDF to PowerPoint</h3>
+                <p>Convert PDF to PPT/PPTX</p>
+            </a>
 
-        <a href="/powerpoint-to-pdf" class="tool-card">
-            <div class="tool-icon">📊➡️📄</div>
-            <h3>PowerPoint to PDF</h3>
-            <p>Convert presentations to PDF</p>
-        </a>
+            <a href="powerpoint-to-pdf.html" class="tool-card">
+                <div class="tool-icon">📊➡️📄</div>
+                <h3>PowerPoint to PDF</h3>
+                <p>Convert presentations to PDF</p>
+            </a>
 
-        <a href="/edit-pdf" class="tool-card">
-            <div class="tool-icon">✏️📄</div>
-            <h3>Edit PDF</h3>
-            <p>Modify PDF content online</p>
-        </a>
+            <a href="edit-pdf.html" class="tool-card">
+                <div class="tool-icon">✏️📄</div>
+                <h3>Edit PDF</h3>
+                <p>Modify PDF content online</p>
+            </a>
 
-        <a href="/sign-pdf" class="tool-card">
-            <div class="tool-icon">🖋️📄</div>
-            <h3>Sign PDF</h3>
-            <p>Add digital signatures to PDFs</p>
-        </a>
+            <a href="sign-pdf.html" class="tool-card">
+                <div class="tool-icon">🖋️📄</div>
+                <h3>Sign PDF</h3>
+                <p>Add digital signatures to PDFs</p>
+            </a>
 
-        <a href="/organize-pdf" class="tool-card">
-            <div class="tool-icon">🗂️📄</div>
-            <h3>Organize PDF</h3>
-            <p>Reorder and manage PDF pages</p>
-        </a>
+            <a href="organize-pdf.html" class="tool-card">
+                <div class="tool-icon">🗂️📄</div>
+                <h3>Organize PDF</h3>
+                <p>Reorder and manage PDF pages</p>
+            </a>
 
-        <a href="/jpg-compressor" class="tool-card">
-            <div class="tool-icon">📉🖼️</div>
-            <h3>JPG Compressor</h3>
-            <p>Reduce image file size</p>
-        </a>
-    </div>
+            <a href="jpg-compressor.html" class="tool-card">
+                <div class="tool-icon">📉🖼️</div>
+                <h3>JPG Compressor</h3>
+                <p>Reduce image file size</p>
+            </a>
+        </div>
+    </main>
 
     <!-- Google AdSense Footer Ad -->
     <div class="ad-unit">
@@ -193,13 +304,76 @@
              data-full-width-responsive="true"></ins>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>© CoolToolkit 2025. All rights reserved</p>
-        <p>🔒 Secure Processing | 🚀 Fast Conversion | 🆓 Free to Use</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="help-center.html">Help Center</a></li>
+                    <li><a href="status.html">Service Status</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2025 CoolToolkit. All rights reserved</p>
+            <p>🔒 Secure Processing | 🚀 Instant Conversion | 🆓 Free Forever</p>
+        </div>
     </footer>
 
     <script>
+        // Initialize AdSense
         (adsbygoogle = window.adsbygoogle || []).push({});
+
+        // Tool Interaction
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Add actual file processing functionality
+                console.log('Tool activated:', this.querySelector('h3').textContent);
+                // window.location.href = this.href;
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'mobile-menu-toggle';
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.querySelector('.main-nav').appendChild(menuToggle);
+        
+        menuToggle.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
     </script>
 </body>
 </html>
