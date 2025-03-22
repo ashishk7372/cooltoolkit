@@ -15,6 +15,7 @@
             --accent: #90CAF9;
             --background: #E3F2FD;
             --text: #0D47A1;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -33,114 +34,177 @@
             flex-direction: column;
         }
 
-        /** Header Styles */
+        /* Header Styles */
         .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem 1rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(45deg);
         }
 
         .main-nav {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 1.8em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
-            align-items: center;
+            justify-content: center;
             list-style: none;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .nav-links a {
-            color: white;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            transition: all 0.3s;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
         }
 
         .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
-        /** Main Content */
+        .tagline {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
         main {
             flex: 1;
-            padding: 2rem 1rem;
+            padding: 4rem 1rem;
         }
 
         .tool-grid {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
             padding: 1rem;
         }
 
         .tool-card {
             background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow);
             text-decoration: none;
             color: inherit;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tool-card:hover::before {
+            opacity: 1;
         }
 
         .tool-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             color: var(--secondary);
+            transition: transform 0.3s;
         }
 
-        /** Ad Units */
+        .tool-card:hover .tool-icon {
+            transform: scale(1.1);
+        }
+
+        /* Ad Units */
         .ad-unit {
             background: white;
-            border-radius: 15px;
-            padding: 1rem;
-            margin: 2rem auto;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem auto;
             max-width: 1200px;
             text-align: center;
             min-height: 250px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        /** Footer Styles */
+        /* Footer Styles */
         footer {
             background: var(--primary);
             color: white;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             margin-top: auto;
+            position: relative;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
             padding-bottom: 2rem;
         }
 
         .footer-section h4 {
             color: var(--accent);
             margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .footer-links {
@@ -148,59 +212,87 @@
         }
 
         .footer-links a {
-            color: white;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             display: block;
-            margin-bottom: 0.8rem;
-            transition: opacity 0.3s;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
         }
 
         .footer-links a:hover {
-            opacity: 0.8;
+            color: white;
+            transform: translateX(5px);
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .social-links a {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: white;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
-            opacity: 0.8;
+            transform: translateY(-3px);
+            opacity: 0.9;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
-        /** Responsive Adjustments */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
+            .logo {
+                font-size: 2rem;
             }
 
             .nav-links {
-                margin-top: 1rem;
                 gap: 1rem;
-                width: 100%;
-                justify-content: center;
             }
 
             .nav-links a {
-                padding: 0.5rem;
-                width: 100%;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .tool-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(10deg);
+            box-shadow: var(--shadow);
         }
     </style>
 </head>
@@ -218,16 +310,17 @@
     <!-- Header Navigation -->
     <header class="header">
         <nav class="main-nav">
-            <a href="index.html" class="logo">
-                <h1>🛠️ CoolToolkit</h1>
-            </a>
+            <div class="logo">
+                <i class="fas fa-tools"></i>
+                <h1>CoolToolkit</h1>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="all-tools.html">All Tools</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
-        <p>Your Ultimate Document & Image Solution</p>
+        <p class="tagline">Your Ultimate Document & Image Solution</p>
     </header>
 
     <!-- Main Content -->
@@ -235,35 +328,41 @@
         <div class="tool-grid">
             <!-- PDF Tools -->
             <a href="jpg-pdf.html" class="tool-card">
-                <div class="tool-icon" aria-hidden="true">🖼️➡️📄</div>
+                <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
                 <h3>JPG to PDF</h3>
-                <p>Convert images to PDF documents</p>
+                <p>Convert images to professional PDF documents</p>
+                <div class="badge">NEW</div>
             </a>
+
             <a href="pdf-jpg.html" class="tool-card">
-                <div class="tool-icon" aria-hidden="true">📄➡️🖼️</div>
+                <div class="tool-icon"><i class="fas fa-image"></i></div>
                 <h3>PDF to JPG</h3>
-                <p>Extract images from PDF files</p>
+                <p>Extract high-quality images from PDF files</p>
             </a>
+
             <a href="pdf-merge.html" class="tool-card">
-                <div class="tool-icon" aria-hidden="true">📂➕📂</div>
+                <div class="tool-icon"><i class="fas fa-copy"></i></div>
                 <h3>PDF Merger</h3>
-                <p>Combine multiple PDFs into one</p>
+                <p>Combine multiple PDFs into a single document</p>
+                <div class="badge">PRO</div>
             </a>
+
             <a href="split-pdf.html" class="tool-card">
-                <div class="tool-icon" aria-hidden="true">✂️📄</div>
+                <div class="tool-icon"><i class="fas fa-cut"></i></div>
                 <h3>Split PDF</h3>
-                <p>Divide PDF into multiple files</p>
+                <p>Divide PDF documents into multiple files</p>
             </a>
+
             <a href="pdf-compressor.html" class="tool-card">
-                <div class="tool-icon" aria-hidden="true">📉📄</div>
+                <div class="tool-icon"><i class="fas fa-compress-alt"></i></div>
                 <h3>PDF Compressor</h3>
-                <p>Reduce PDF file size</p>
+                <p>Reduce PDF file size without quality loss</p>
             </a>
-        
+
             <a href="jpg-compressor.html" class="tool-card">
-                <div class="tool-icon" aria-hidden="true">📉🖼️</div>
+                <div class="tool-icon"><i class="fas fa-file-image"></i></div>
                 <h3>JPG Compressor</h3>
-                <p>Reduce image file size</p>
+                <p>Optimize image files for web and storage</p>
             </a>
         </div>
     </main>
@@ -287,7 +386,6 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="our-story.html">Our Story</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="careers.html">Careers</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -295,7 +393,6 @@
                 <ul class="footer-links">
                     <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="cookies.html">Cookie Policy</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -303,7 +400,7 @@
                 <ul class="footer-links">
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="help-center.html">Help Center</a></li>
-                    <li><a href="status.html">Service Status</a></li>
+                    <li><a href="status.html">feedback</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -325,6 +422,16 @@
     <script>
         // Initialize AdSense
         (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
