@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - CoolToolkit</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_CLIENT_ID" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1A237E;
+            --secondary: #1976D2;
+            --accent: #90CAF9;
+            --background: #E3F2FD;
+            --text: #0D47A1;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* FAQ Content */
+        .faq-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-category {
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--background);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item:hover {
+            transform: translateX(10px);
+        }
+
+        .faq-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq-item h3 i {
+            color: var(--secondary);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools"></i>
+                <h1>CoolToolkit</h1>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="faq-content">
+        <h1 style="color: var(--primary); text-align: center; margin-bottom: 2rem;">Frequently Asked Questions</h1>
+
+        <div class="faq-category">
+            <h2 style="color: var(--secondary); margin-bottom: 1.5rem;">🔒 Security & Privacy</h2>
+            
+            <div class="faq-item">
+                <h3><i class="fas fa-shield-alt"></i> Is my data safe?</h3>
+                <p>All files are encrypted during transfer and automatically deleted from our servers after 2 hours. We never store your original documents.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-lock"></i> Do you sell my data?</h3>
+                <p>Never. We adhere to strict privacy policies and never share or sell user data to third parties.</p>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 style="color: var(--secondary); margin-bottom: 1.5rem;">💻 Usage</h2>
+            
+            <div class="faq-item">
+                <h3><i class="fas fa-file-upload"></i> What file types do you support?</h3>
+                <p>We support PDF, JPG, PNG, and BMP formats. Max file size is 50MB for free users and 500MB for premium.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-clock"></i> How long do conversions take?</h3>
+                <p>Most files process in under 30 seconds. Larger files (50MB+) may take up to 2 minutes.</p>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 style="color: var(--secondary); margin-bottom: 1.5rem;">💰 Pricing</h2>
+            
+            <div class="faq-item">
+                <h3><i class="fas fa-coins"></i> Is it really free?</h3>
+                <p>Yes! Core features remain free forever. Premium subscriptions offer additional capabilities and priority support.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-sync-alt"></i> Can I cancel premium anytime?</h3>
+                <p>Absolutely. Cancel your subscription anytime through your account settings with no hidden fees.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Support</h4>
+                <div class="footer-links">
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                    
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <div class="footer-links">
+                    <a href="terms.html">Terms</a>
+                  
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 CoolToolkit. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
